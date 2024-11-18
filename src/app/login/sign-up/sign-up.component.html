@@ -1,0 +1,98 @@
+<div class="signUp">
+  <form class="signUp__form" [formGroup]="myForm" (ngSubmit)="Register()">
+
+    <div class="signUp__label">
+      <label for="userName">Имя</label>
+    </div>
+    <div class="signUp__input">
+      <input
+        type="text"
+        id="userName"
+        placeholder="Введите ваше имя"
+        formControlName="name"
+      />
+      @if (myForm.controls['name'].invalid && myForm.controls['name'].touched) {
+        <div class="error">
+          Имя обязательно.
+        </div>
+      }
+    </div>
+
+    <div class="signUp__label">
+      <label for="email">Email</label>
+    </div>
+    <div class="signUp__input">
+      <input
+        type="email"
+        id="email"
+        placeholder="Введите ваш email"
+        formControlName="email"
+      />
+      @if (myForm.controls['email'].invalid && myForm.controls['email'].touched) {
+        <div class="error">
+          @if (myForm.controls['email'].errors?.['required']) {
+            Email обязателен.
+          }
+          @if (myForm.controls['email'].errors?.['email']) {
+            Введите корректный email.
+          }
+        </div>
+      }
+    </div>
+
+    <div class="signUp__label">
+      <label for="password">Пароль</label>
+    </div>
+    <div class="signUp__input">
+      <input
+        type="password"
+        id="password"
+        placeholder="Введите ваш пароль"
+        formControlName="password"
+      />
+      @if (myForm.controls['password'].invalid && myForm.controls['password'].touched) {
+        <div class="error">
+          Пароль должен содержать хотя бы одну заглавную букву, цифру и спецсимвол.
+        </div>
+      }
+    </div>
+
+    <div class="signUp__label">
+      <label for="confirmPassword">Повторите Пароль</label>
+    </div>
+    <div class="signUp__input">
+      <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Подтвердите ваш пароль"
+        formControlName="confirmPassword"
+      />
+      @if (
+        myForm.controls['confirmPassword'].invalid &&
+        myForm.controls['confirmPassword'].touched
+      ) {
+        <div class="error">
+          Пароли должны совпадать.
+        </div>
+      }
+      @if (myForm.hasError('passwordMismatch') && myForm.touched) {
+        <div class="error">
+          Пароли не совпадают.
+        </div>
+      }
+    </div>
+
+    <button
+      class="signUp__button"
+      type="submit"
+      [disabled]="myForm.invalid"
+    >
+      <span>Зарегистрироваться</span>
+    </button>
+
+    <div class="signUp__text">
+      Уже есть аккаунт?
+      <a routerLink="/signIn" routerLinkActive="router-link-active">Войти</a>
+    </div>
+  </form>
+</div>

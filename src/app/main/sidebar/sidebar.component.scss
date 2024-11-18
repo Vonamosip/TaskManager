@@ -1,0 +1,33 @@
+html{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.sidebar{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+  bottom: 1px;
+  right: 7px;
+  width: 180px;
+  height: 92.5vh;
+  background-color: rgba(245, 247, 252, 1);
+  border: 1px solid #ebeaea;
+  &__tittle{
+    margin-top: 3vh;
+  }
+  &__tasks{
+    margin: 0.5vh;
+  }
+  &__chat{
+    margin: 0.5vh;
+  }
+  &__text{
+    color: rgba(82, 123, 240, 1);
+  }
+  :active{
+    color: rgba(82, 123, 240, 1);
+  }
+}

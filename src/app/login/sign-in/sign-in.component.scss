@@ -1,0 +1,80 @@
+.signIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98vh;
+}
+
+.signIn__form {
+  width: 400px;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.signIn__label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 14px;
+  color: rgba(49, 49, 49, 1);
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.signIn__input input {
+  display: block;
+  font-family: inherit;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(9, 33, 71, 1);
+  background-color: transparent;
+  background-clip: padding-box;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.signIn__input input:focus {
+  border-color: #0056b3;
+}
+
+.signIn__button {
+  width: 106%;
+  padding: 10px;
+  background-color: rgba(82, 123, 240, 1);
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #E2E8F0;
+  border-radius: 25px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.signIn__button:hover {
+  background-color: rgb(77, 116, 223);
+}
+
+.signIn__text {
+  font-size: 12px;
+  color: rgba(49, 49, 49, 1);
+  margin-top: 15px;
+}
+
+.signIn__text a {
+  color: rgba(82, 123, 240, 1);
+  text-decoration: none;
+}
+
+.signIn__text a:hover {
+  text-decoration: underline;
+}

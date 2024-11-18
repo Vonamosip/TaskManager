@@ -1,0 +1,29 @@
+<div class="signIn">
+  <div class="signIn__form">
+    <div class="signIn__label">
+      <label for="Email">
+        Ваш email
+      </label>
+    </div>
+    <div class="signIn__input">
+      <input type="email" name="email" placeholder="Enter your email" [(ngModel)]="loginObj.email">
+    </div>
+    <div class="signIn__label">
+      <label for="password" >
+        Ваш пароль
+      </label>
+    </div>
+    <div class="signIn__input">
+      <input type="password" name="password" placeholder="Enter your password"  [(ngModel)]="loginObj.password">
+    </div>
+    <button class="signIn__button" (click)="Login()">
+      <span>Login</span>
+    </button>
+    <div class="signIn__text">
+      Ещё нет аккаунта?
+      <a [routerLink]="['/signUp']"
+      routerLinkActive="router-link-active" >Зарегистрироваться</a>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
