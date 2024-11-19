@@ -1,9 +1,12 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from '@angular/router';
-import { confirmPasswordValidator } from '../../shared/interfaces/confirm-password.validator';
+import { confirmPasswordValidator } from '../../shared/confirm-password.validator';
+import { SignUpSuccessResponse } from '../../shared/interfaces/SignUpSuccessResponse.interface';
+import { take } from 'rxjs';
+
 
 
 @Component({
@@ -16,12 +19,9 @@ import { confirmPasswordValidator } from '../../shared/interfaces/confirm-passwo
 export class SignUpComponent implements OnInit {
   public myForm!: FormGroup;
 
-  constructor(
-    private readonly auth: AuthService,
-    private readonly router: Router,
-  ) {}
+  constructor(private readonly auth: AuthService, private readonly router: Router) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.myForm = new FormGroup({
       name: new FormControl('',Validators.required),
       email:new FormControl('',[Validators.required, Validators.email]),
@@ -31,16 +31,16 @@ export class SignUpComponent implements OnInit {
     { validators: [confirmPasswordValidator]})
   }
 
-  Register() {
+  public register() {
     if (this.myForm.valid) {
-      const { name, email, password } = this.myForm.value;
-      this.auth.onLogin({ name, email, password }).subscribe((res: any) => {
-        if (res.success) {
+      const { userName, email, password } = this.myForm.value;
+      this.auth.onRegister({ userName, email, password}).pipe(
+        take(1),
+      ).subscribe((res: SignUpSuccessResponse) => {
+          localStorage.setItem(userName, JSON.stringify(res.data));
           this.router.navigateByUrl('/signIn');
-        } else {
-          alert(res.message);
-        }
       });
     }
   }
+
 }

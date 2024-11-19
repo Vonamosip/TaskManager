@@ -1,1 +1,113 @@
-<p>project works!</p>
+<div class="container">
+<div class="example-container">
+  <h2>К выполнению</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todos"
+    [cdkDropListConnectedTo]="[doneList,doneList2]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (todo of todos; track todo) {
+      <div class="example-box" cdkDrag>
+        <div class="task-card">
+          <div class="task-header">
+            <p class="task-tittle">Название</p>
+            <div class="task-performer">
+              <mat-icon>accessibility</mat-icon>
+              <span>Исполнитель</span>
+            </div>
+          </div>
+          <div class="task-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="task-priority">
+            <span>Приоритет: </span>
+            <span >Высокий</span>
+          </div>
+          <div class="task-dates">
+            <span>10/11/2024 - <span class="priority-text">08/12/2024</span></span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  <button class="addTask__button"  >
+    <span>Добавить задачу</span>
+  </button>
+</div>
+
+<div class="example-container">
+  <h2>В процессе</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="inProgress"
+    [cdkDropListConnectedTo]="[todoList,doneList2]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (item of inProgress; track item) {
+      <div class="example-box" cdkDrag>
+        <div class="task-card">
+          <div class="task-header">
+            <p class="task-tittle">Название</p>
+            <div class="task-performer">
+              <mat-icon>accessibility</mat-icon>
+              <span>Исполнитель</span>
+            </div>
+          </div>
+          <div class="task-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="task-priority">
+            <span>Приоритет: </span>
+            <span >Высокий</span>
+          </div>
+          <div class="task-dates">
+            <span>10/11/2024 - <span class="priority-text">08/12/2024</span></span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>Готово</h2>
+
+  <div
+    cdkDropList
+    #doneList2="cdkDropList"
+    [cdkDropListData]="dones"
+    [cdkDropListConnectedTo]="[todoList,doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (done of dones; track done) {
+      <div class="example-box" cdkDrag>
+        <div class="task-card">
+          <div class="task-header">
+            <p class="task-tittle">Название</p>
+            <div class="task-performer">
+              <mat-icon>accessibility</mat-icon>
+              <span>Исполнитель</span>
+            </div>
+          </div>
+          <div class="task-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="task-priority">
+            <span>Приоритет: </span>
+            <span class="priority-text">Высокий</span>
+          </div>
+          <div class="task-dates">
+            <span>10/11/2024 - <span class="priority-text">08/12/2024</span></span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+</div>

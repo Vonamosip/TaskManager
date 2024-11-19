@@ -1,33 +1,84 @@
-html{
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+.sidebar {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  width: 220px;
+  height: calc(100vh - 76px);
+  background-color: rgba(245, 247, 252, 1);
+  border-right: 1px solid #ebeaea;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar{
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  position: relative;
-  bottom: 1px;
-  right: 7px;
-  width: 180px;
-  height: 92.5vh;
-  background-color: rgba(245, 247, 252, 1);
-  border: 1px solid #ebeaea;
-  &__tittle{
-    margin-top: 3vh;
-  }
-  &__tasks{
-    margin: 0.5vh;
-  }
-  &__chat{
-    margin: 0.5vh;
-  }
-  &__text{
-    color: rgba(82, 123, 240, 1);
-  }
-  :active{
-    color: rgba(82, 123, 240, 1);
-  }
+.sidebar__projects {
+  margin-top: 20px;
+}
+
+.sidebar__tittle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #527bf0;
+}
+
+.sidebar__tasks,
+.sidebar__chat,
+.sidebar__addProject {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.sidebar__tasks:hover,
+.sidebar__chat:hover,
+.sidebar__addProject:hover {
+  color: #527bf0;
+  text-decoration: underline;
+}
+
+.sidebar__tasks.active,
+.sidebar__chat.active,
+.sidebar__addProject.active {
+  color: #527bf0;
+  font-weight: bold;
+}
+
+.sidebar__text {
+  font-size: 14px;
+  color: #4a4a4a  ;
+}
+
+.sidebar__addProject {
+  margin-top: auto;
+  width: 80%;
+  padding: 10px;
+  background-color: rgba(82, 123, 240, 1);
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #E2E8F0;
+  border-radius: 7px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.sidebar__addProject:hover {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: rgb(77, 116, 223);
+}
+
+
+.sidebar__text.active {
+  text-decoration: none;
+  border-left: 3px solid #527bf0;
+  padding-left: 5px;
+  color: #527bf0;
 }

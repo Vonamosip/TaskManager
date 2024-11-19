@@ -1,12 +1,12 @@
 <div class="signIn">
-  <div class="signIn__form">
+  <form class="signIn__form" [formGroup]="myForm" (ngSubmit)="Login()" (keydown.enter)="Login()">
     <div class="signIn__label">
       <label for="Email">
         Ваш email
       </label>
     </div>
     <div class="signIn__input">
-      <input type="email" name="email" placeholder="Enter your email" [(ngModel)]="loginObj.email">
+      <input type="email" name="email" placeholder="Enter your email" formControlName="email"   >
     </div>
     <div class="signIn__label">
       <label for="password" >
@@ -14,16 +14,16 @@
       </label>
     </div>
     <div class="signIn__input">
-      <input type="password" name="password" placeholder="Enter your password"  [(ngModel)]="loginObj.password">
+      <input type="password" name="password" placeholder="Enter your password" formControlName="password"  >
     </div>
-    <button class="signIn__button" (click)="Login()">
-      <span>Login</span>
+    <button class="signIn__button" >
+      <span>Вход</span>
     </button>
     <div class="signIn__text">
       Ещё нет аккаунта?
       <a [routerLink]="['/signUp']"
       routerLinkActive="router-link-active" >Зарегистрироваться</a>
     </div>
-  </div>
+  </form>
 </div>
 <router-outlet></router-outlet>

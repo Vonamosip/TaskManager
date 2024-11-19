@@ -1,0 +1,13 @@
+.cdk-overlay-container {
+  .mat-mdc-menu-content {
+    padding: 0;
+  }
+  .mat-mdc-menu-content:hover{
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .mat-mdc-menu-panel{
+    position: relative;
+    bottom: 1vh;
+    right: 1vw;
+  }
+}

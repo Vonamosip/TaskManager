@@ -1,5 +1,3 @@
-import { Component } from '@angular/core';
-
 import { Routes } from '@angular/router';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { AlertComponent } from './alert/alert.component';
@@ -13,18 +11,18 @@ export const routes: Routes = [
     component: SignInComponent,
   },
   {
-    path: '',
-    redirectTo: "signIn",
-    pathMatch: "full"
-  },
-  {
     path: 'signUp',
     component: SignUpComponent
   },
   {
-    path: 'Main',
+    path: 'main',
     component: MainComponent,
     canActivate: [authGuard],
+  },
+  {
+    path: '',
+    redirectTo: "signIn",
+    pathMatch: "full"
   },
   {
     path: '**',

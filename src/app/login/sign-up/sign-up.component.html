@@ -1,5 +1,5 @@
 <div class="signUp">
-  <form class="signUp__form" [formGroup]="myForm" (ngSubmit)="Register()">
+  <form class="signUp__form" [formGroup]="myForm" (ngSubmit)="register()" (keydown.enter)="register()">
 
     <div class="signUp__label">
       <label for="userName">Имя</label>
@@ -10,6 +10,7 @@
         id="userName"
         placeholder="Введите ваше имя"
         formControlName="name"
+        (keydown.enter)="register()"
       />
       @if (myForm.controls['name'].invalid && myForm.controls['name'].touched) {
         <div class="error">
@@ -27,6 +28,7 @@
         id="email"
         placeholder="Введите ваш email"
         formControlName="email"
+        (keydown.enter)="register()"
       />
       @if (myForm.controls['email'].invalid && myForm.controls['email'].touched) {
         <div class="error">
@@ -49,6 +51,7 @@
         id="password"
         placeholder="Введите ваш пароль"
         formControlName="password"
+        (keydown.enter)="register()"
       />
       @if (myForm.controls['password'].invalid && myForm.controls['password'].touched) {
         <div class="error">
@@ -66,16 +69,13 @@
         id="confirmPassword"
         placeholder="Подтвердите ваш пароль"
         formControlName="confirmPassword"
+        (keydown.enter)="register()"
       />
       @if (
-        myForm.controls['confirmPassword'].invalid &&
-        myForm.controls['confirmPassword'].touched
+        (myForm.controls['confirmPassword'].invalid &&
+        myForm.controls['confirmPassword'].touched) ||
+        myForm.hasError('invalidPass')
       ) {
-        <div class="error">
-          Пароли должны совпадать.
-        </div>
-      }
-      @if (myForm.hasError('passwordMismatch') && myForm.touched) {
         <div class="error">
           Пароли не совпадают.
         </div>

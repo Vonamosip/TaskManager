@@ -1,9 +1,10 @@
+<div class="main-page">
 <header class="header">
   <button class="header-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon >more_vert</mat-icon>
   </button>
   <mat-menu class="mat-menu" #menu="matMenu">
-    <button  mat-menu-item class="custom-menu-item">
+    <button  mat-menu-item class="custom-menu-item" [routerLink]="['/signIn']" routerLinkActive="router-link-active" >
       <mat-icon>exit_to_app</mat-icon>
       <span>Выйти</span>
     </button>
@@ -11,4 +12,6 @@
 </header>
 <app-sidebar></app-sidebar>
 <main class="main">
+  <app-project></app-project>
 </main>
+</div>
