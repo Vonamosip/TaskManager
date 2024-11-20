@@ -4,7 +4,7 @@ import {  FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angul
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from '@angular/router';
 import { confirmPasswordValidator } from '../../shared/confirm-password.validator';
-import { SignUpSuccessResponse } from '../../shared/interfaces/SignUpSuccessResponse.interface';
+import { ISignUpSuccessResponse } from '../../shared/interfaces/SignUpSuccessResponse.interface';
 import { take } from 'rxjs';
 
 
@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
 
   public ngOnInit() {
     this.myForm = new FormGroup({
-      name: new FormControl('',Validators.required),
+      userName: new FormControl('',Validators.required),
       email:new FormControl('',[Validators.required, Validators.email]),
       password:new FormControl('',[Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_]).+$')]),
       confirmPassword:new FormControl('',[Validators.required,]),
@@ -36,7 +36,7 @@ export class SignUpComponent implements OnInit {
       const { userName, email, password } = this.myForm.value;
       this.auth.onRegister({ userName, email, password}).pipe(
         take(1),
-      ).subscribe((res: SignUpSuccessResponse) => {
+      ).subscribe((res: ISignUpSuccessResponse) => {
           localStorage.setItem(userName, JSON.stringify(res.data));
           this.router.navigateByUrl('/signIn');
       });

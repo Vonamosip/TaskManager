@@ -53,7 +53,7 @@
 }
 
 .sidebar__addProject {
-  margin-top: auto;
+  margin-top: 20px;
   width: 80%;
   padding: 10px;
   background-color: rgba(82, 123, 240, 1);
@@ -81,4 +81,31 @@
   border-left: 3px solid #527bf0;
   padding-left: 5px;
   color: #527bf0;
+}
+
+:host::ng-deep .mat-accordion .mat-expansion-panel:last-of-type {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+:host::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]){
+  box-shadow: none;
+}
+
+.mat-expansion-panel-header{
+  background-color: rgba(245, 247, 252, 1)  ;
+  box-shadow: none;
+}
+
+.mat-expansion-panel{
+  background: none;
+  border: none;
+}
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+  background: rgba(245, 247, 252, 1);
+}
+:host ::ng-deep .mat-expansion-panel-body{
+  padding: 0 8px 0px;
 }

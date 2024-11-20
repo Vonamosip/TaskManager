@@ -1,20 +1,27 @@
 <div class="sidebar">
-  <div class="sidebar__projects">
-    <div class="sidebar__tittle active">
-      Проект 1
-    </div>
-    <div class="sidebar__tasks">
-      <div class="sidebar__text active">
-        Задачи
+  @for (item of [1,2,3]; track $index) {
+  <mat-accordion class="accordion">
+    <mat-expansion-panel hideToggle class="panel">
+      <mat-expansion-panel-header class="panel-header">
+        <div class="sidebar__tittle">
+          Проект {{$index + 1}}
+        </div>
+      </mat-expansion-panel-header >
+      <div class="sidebar__tasks">
+        <div class="sidebar__text active">
+          Задачи
+        </div>
       </div>
-    </div>
-    <div class="sidebar__chat">
-      <div class="sidebar__text">
-        Чат
+      <div class="sidebar__chat">
+        <div class="sidebar__text">
+          Чат
+        </div>
       </div>
-    </div>
-    <button class="sidebar__addProject">
-     <span>Добавить проект</span>
-    </button>
-  </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  }
+  <button class="sidebar__addProject">
+    <span>Добавить проект</span>
+  </button>
 </div>
+

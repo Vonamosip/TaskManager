@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { SidebarComponent } from "./sidebar/sidebar.component";
-import { ProjectComponent } from "./project/project.component";
+import { ProjectComponent } from "./task/project.component";
 import {MatMenuModule} from '@angular/material/menu'
 
 @Component({

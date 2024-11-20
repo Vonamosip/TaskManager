@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon'
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { SignInSuccessResponse } from '../../shared/interfaces/SignInSuccessResponse.interface';
+import { ISignInSuccessResponse } from '../../shared/interfaces/SignInSuccessResponse.interface';
 import { take } from 'rxjs';
 @Component({
   selector: 'app-sign-in',
@@ -30,7 +30,7 @@ export class SignInComponent implements OnInit {
   const {  email, password } = this.myForm.value;
   this.auth.onLogin({email, password}).pipe(
     take(1),
-  ).subscribe((res:SignInSuccessResponse)=>{
+  ).subscribe((res:ISignInSuccessResponse)=>{
     if(res.success){
       this.router.navigateByUrl('/main');
     } else {

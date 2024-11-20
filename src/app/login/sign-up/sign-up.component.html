@@ -9,10 +9,10 @@
         type="text"
         id="userName"
         placeholder="Введите ваше имя"
-        formControlName="name"
+        formControlName="userName"
         (keydown.enter)="register()"
       />
-      @if (myForm.controls['name'].invalid && myForm.controls['name'].touched) {
+      @if (myForm.controls['userName'].invalid && myForm.controls['userName'].touched) {
         <div class="error">
           Имя обязательно.
         </div>
